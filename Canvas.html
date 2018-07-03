@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/*body{perspective:-3000px;}*/
+			.wrap{perspective:-3000px;border: 1px solid red;position: relative;width:500px;height:500px;margin: 300px auto;transform-style: preserve-3d;}
+			.wrap div{width:300px;height: 300px;position: absolute;background-color: gainsboro;opacity: 0.3;border:1px solid gray;
+			text-align: center;font-size: 200px;line-height: 300px;top: 100px;left: 100px;transform-origin: 50% 50%;}
+			.wrap div:nth-child(1){transform: rotateY(0deg) translateZ(150px);}
+			.wrap div:nth-child(2){transform: rotateY(0deg) translateZ(-150px);}
+			.wrap div:nth-child(3){transform: rotateY(90deg) translateZ(150px);}
+			.wrap div:nth-child(4){transform: rotateY(90deg) translateZ(-150px)}
+			.wrap div:nth-child(5){transform: rotateX(90deg) translateZ(-150px);}
+			.wrap div:nth-child(6){transform: rotateX(90deg) translateZ(150px);}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="上" onclick="up()"/>
+		<input type="button" value="下" onclick="down()"/>
+		<input type="button" value="左" onclick="left()"/>
+		<input type="button" value="右" onclick="right()"/>
+		<div class="wrap" id="">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+		</div>
+		
+	</body>
+	<script>
+		var deg1=0;
+		var deg2=0;
+		var oDiv=document.getElementsByClassName("wrap")[0];
+		function up(){
+			deg1+=5;
+			oDiv.style.transform="rotateX("+deg1+"deg) rotateY("+deg2+"deg)"
+		}
+		function down(){
+			deg1-=5;
+			oDiv.style.transform="rotateX("+deg1+"deg) rotateY("+deg2+"deg)"
+		}
+		function left(){
+			deg2+=5;
+			oDiv.style.transform="rotateX("+deg1+"deg) rotateY("+deg2+"deg)";
+		}
+		function right(){
+			deg2-=5;
+			oDiv.style.transform="rotateX("+deg1+"deg) rotateY("+deg2+"deg)";
+		}
+	</script>
+</html>
